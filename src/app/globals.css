@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    touch-action: manipulation;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply min-h-screen;
+  }
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-sv-accent;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
