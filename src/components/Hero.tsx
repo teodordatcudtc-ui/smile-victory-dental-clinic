@@ -22,13 +22,27 @@ export default function Hero() {
 
   return (
     <section
-      className="relative min-h-[85vh] sm:min-h-[90vh] flex items-center"
+      className="relative min-h-[85vh] sm:min-h-[90vh] flex items-center overflow-hidden"
       aria-labelledby="hero-title"
     >
-      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-6 xl:px-8">
-        <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-12 bg-sv-bg rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-sm">
+      {/* Mobil: imagine fundal */}
+      <div className="lg:hidden absolute inset-0">
+        <Image
+          src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=900&q=85"
+          alt=""
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+          priority
+          aria-hidden
+        />
+        <div className="absolute inset-0 bg-white/75" aria-hidden />
+      </div>
+
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-6 xl:px-8">
+        <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-12 lg:bg-sv-bg lg:rounded-[2rem] xl:rounded-[3rem] overflow-hidden lg:shadow-sm">
           {/* Coloana stânga – text și CTA (~45%) */}
-          <div className="flex-[0.45] flex flex-col justify-center pl-6 sm:pl-10 lg:pl-12 xl:pl-16 pr-6 py-12 lg:py-16 order-2 lg:order-1">
+          <div className="flex-[0.45] flex flex-col justify-center pl-4 sm:pl-6 lg:pl-12 xl:pl-16 pr-4 sm:pr-6 lg:pr-6 py-12 sm:py-16 lg:py-16 order-2 lg:order-1">
             <h1
               id="hero-title"
               className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-[2.75rem] font-bold text-sv-dark leading-[1.15] mb-4 sm:mb-6"
@@ -86,8 +100,8 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Coloana dreapta – imagine (~55%) */}
-          <div className="flex-[0.55] relative min-h-[45vh] sm:min-h-[50vh] lg:min-h-[85vh] order-1 lg:order-2">
+          {/* Coloana dreapta – imagine (~55%), ascunsă pe mobil (imaginea e fundal) */}
+          <div className="hidden lg:flex flex-[0.55] relative min-h-[45vh] sm:min-h-[50vh] lg:min-h-[85vh] order-1 lg:order-2">
             <div className="absolute inset-0 lg:rounded-r-[2rem] lg:rounded-r-[3rem] overflow-hidden">
               <Image
                 src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=900&q=85"
